@@ -1,9 +1,92 @@
-<script setup lang="ts">
-import TheWelcome from "../components/TheWelcome.vue";
+<script lang="ts">
+import EventCard from "../components/EventCard.vue";
+export default {
+  name: "HomeView",
+  components: {
+    EventCard,
+  },
+  data() {
+    return {
+      events: [
+        {
+          id: 1245,
+          category: "animal kingdom",
+          title: "Cat Adoption Day",
+          description: "Adopt a new furry friend",
+          location: "Petstore 123, Main Street",
+          date: "2023-03-01",
+          time: "10:00 AM",
+          petsAllowed: true,
+          organizer: "Ibraheem",
+        },
+        {
+          id: 1246,
+          category: "sports",
+          title: "Soccer Tournament",
+          description: "Join us for a friendly game of soccer",
+          location: "Park XYZ, Elm Street",
+          date: "2023-03-02",
+          time: "2:00 PM",
+          petsAllowed: false,
+          organizer: "David",
+        },
+        {
+          id: 1247,
+          category: "music",
+          title: "Concert Series",
+          description: "Listen to live music and enjoy the night",
+          location: "Theater ABC, Oak Street",
+          date: "2023-03-03",
+          time: "8:00 PM",
+          petsAllowed: false,
+          organizer: "Sarah",
+        },
+        {
+          id: 1248,
+          category: "food and drink",
+          title: "Wine Tasting Event",
+          description:
+            "Taste different types of wine and enjoy some appetizers",
+          location: "Wine Bar 123, Pine Street",
+          date: "2023-03-04",
+          time: "7:00 PM",
+          petsAllowed: false,
+          organizer: "John",
+        },
+        {
+          id: 1249,
+          category: "education",
+          title: "STEM Workshop",
+          description:
+            "Learn about science, technology, engineering and mathematics",
+          location: "Museum ABC, Maple Street",
+          date: "2023-03-05",
+          time: "10:00 AM",
+          petsAllowed: false,
+          organizer: "Amanda",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <div class="events">
+      <h1 class="green">Events</h1>
+      <EventCard v-for="event in events" :key="event.id" :event="event" />
+    </div>
   </main>
 </template>
+
+<style scoped>
+.events {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.green {
+  margin-right: 500px;
+}
+</style>
