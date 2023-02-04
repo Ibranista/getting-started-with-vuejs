@@ -1,6 +1,6 @@
 <script lang="ts">
-import EventCard from "../components/EventCard.vue";
-import axios from "axios";
+import EventCard from "@/components/EventCard.vue";
+import EventService from "@/services/EventService";
 export default {
   name: "EventList",
   components: {
@@ -13,9 +13,7 @@ export default {
   },
   async created() {
     try {
-      let data = await axios.get(
-        "http://my-json-server.typicode.com/ibranista/fake-database/events"
-      );
+      let data = await EventService.fetchEvents().getEvents;
       this.events = data.data;
     } catch (error) {
       console.log(error);
