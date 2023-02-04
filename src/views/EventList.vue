@@ -1,7 +1,7 @@
 <script lang="ts">
 import EventCard from "../components/EventCard.vue";
 export default {
-  name: "HomeView",
+  name: "EventList",
   components: {
     EventCard,
   },
@@ -87,6 +87,6 @@ export default {
   align-items: center;
 }
 .green {
-  margin-right: 500px;
+  margin-right: 500px;  
 }
 </style>
